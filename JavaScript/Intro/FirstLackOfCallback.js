@@ -37,7 +37,7 @@ console.log(t2 - t1);
 
 // task2 area begins
 let t3 = Date.now();
-console.log("Starting task2 at " + t1 % 100000);
+console.log("Starting task2 at " + t3 % 100000);
 
 for(let i=2; i<args.n; i++){
     let isPrime = IsPrime(i);
@@ -47,6 +47,6 @@ for(let i=2; i<args.n; i++){
 }
 
 let t4 = Date.now();
-console.log("Finishing task2 at " + t2 % 100000);
-console.log(t2 - t1);
+console.log("Finishing task2 at " + t4 % 100000);
+console.log(t4 - t3);
 // task1 area ends
