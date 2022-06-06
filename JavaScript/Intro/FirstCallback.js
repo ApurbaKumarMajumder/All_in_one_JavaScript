@@ -1,9 +1,7 @@
 // t1 = Read a file (disk)
 // t2 = Calculate primes (cpu)
-// t3 = Write a file (disk)
-// t4 = Calculate square of primes (cpu)
-// t2 is done after t1
-// node FirstLackOfCallback.js --source=f1.txt --dest=f2.txt --n=50000
+// t2 is done in parallel with t1
+// node FirstCallback.js --source=f1.txt --dest=f2.txt --n=50000
 
 function IsPrime(x){
     let isPrime = true;
@@ -21,19 +19,17 @@ let minimist = require("minimist");
 let fs = require("fs");
 
 let args = minimist(process.argv);
-// console.log(args.source);
-// console.log(args.dest);
-// console.log(args.n);
 
 // task1 area begins
 let t1 = Date.now();
 console.log("Starting task1 at " + t1 % 100000);
 
-let data = fs.readFileSync(args.source);
-
-let t2 = Date.now();
-console.log("Finishing task1 at " + t2 % 100000);
-console.log(t2 - t1);
+// let data = fs.readFileSync(args.source);
+fs.readFile(args.source, function(data){
+    let t2 = Date.now();
+    console.log("Finishing task1 at " + t2 % 100000);
+    console.log(t2 - t1);
+})
 // task1 area ends
 
 // task2 area begins
