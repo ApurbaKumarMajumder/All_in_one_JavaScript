@@ -1,2 +1,5 @@
 node_modules
 big.data
+package.json
+package-lock.json
+download.html
