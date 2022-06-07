@@ -112,35 +112,3 @@ console.log("Total for the completing of task1 ", (t4 - t3) , " miliseconds");
 // task 2 area completes here
 
 console.log("Total time ", ((t2-t1) + (t4-t3)));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
