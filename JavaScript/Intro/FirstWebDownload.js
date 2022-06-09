@@ -16,3 +16,17 @@ downloadPromise.then(function(responce){
 }).catch(function(err){
     console.log(err);
 })
+
+// let minimist = require("minimist");
+// let axios = require("axios");
+// let fs = require("fs");
+
+// let args = minimist(process.argv);
+
+// let downloadData = axios.get(args.url);
+// downloadData.then(function(responce){
+//     let Data = responce.data;
+//     fs.writeFileSync(args.dest, html, "utf-8");
+// }).catch(function(err){
+//     console.log(err);
+// })
