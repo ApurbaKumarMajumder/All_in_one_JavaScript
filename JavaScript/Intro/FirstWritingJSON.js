@@ -50,7 +50,10 @@ let teams = [
             }
         ]
     }
-]
+];
+
+console.log(teams[2].matches[1]);
+console.log(teams[2].matches[1].vs);
 
 let json = JSON.stringify(teams);
 fs.writeFileSync(args.dest, json, "utf-8");
