@@ -1,5 +1,5 @@
 // npm install jsdom
-// node FirstProcessingHTML.js --source=sample.html
+// node FirstProcessingHTML.js --source=download.html
 
 let minimist = require("minimist");
 let fs = require("fs");
@@ -14,8 +14,8 @@ fs.readFile(args.source, "utf-8", function(err, html){
     let dom = new jsdom.JSDOM(html);
     let document = dom.window.document;
 
-    let elements = document.querySelectorAll(".b");
-    console.log(elements[0].textContent);
-    console.log(elements[1].textContent);
-    console.log(elements[2].textContent);
-})
+    let elements = document.querySelectorAll(".description");
+    for(let i=0; i<elements.length; i++){
+        console.log(elements[i].textContent);
+    }
+}) 
