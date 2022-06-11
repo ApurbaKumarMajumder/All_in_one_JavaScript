@@ -24,25 +24,25 @@ let hstyle = wb.createStyle({
     fill: {
         type: "pattern",
         patternType: "solid",
-        fgColor: "blue"
+        fgColor: "yellow"
     }
 });
 
 for (let i=0; i<teams.length; i++){
     // create new books into the same excel file
     let sheet = wb.addWorksheet(teams[i].name);
-    sheet.cell(1, 1).string("opponent");
-    sheet.cell(1, 2).string("Result");
+    sheet.cell(1, 1).string("vs").style(hstyle);
+    sheet.cell(1, 2).string("Result").style(hstyle);
 
-    sheet.cell(1, 4).string("Rank");
+    sheet.cell(1, 4).string("Rank").style(hstyle);
     sheet.cell(1, 5).number(teams[i].rank);
 
     for(let j=0; j<teams[i].matches.length; j++){
         let vs = teams[i].matches[j].vs;
         let result = teams[i].matches[j].result;
 
-        sheet.cell(2+j, 1).string(vs);
-        sheet.cell(2+j, 2).string(result);
+        sheet.cell(3+j, 1).string(vs);
+        sheet.cell(3+j, 2).string(result);
     }
 }
 wb.write(args.dest);
