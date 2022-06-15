@@ -26,9 +26,35 @@ for(let i=0; i<teams.length; i++){
 function createScoreCard(teamName, match, matchFileName){
     // this fun creates pdf for match in appropriate folder with correct details
     // here we will use pdf-lib to create the pdf
-    console.log(teamName);
-    console.log(match.vs);
-    console.log(match.result);
-    console.log(matchFileName);
-    console.log("----------------------------");
+    // PDF Creation
+    // const pdfDoc = await PDFDocument.create()
+    // const page = pdfDoc.addPage()
+    // page.drawText('You can create PDFs!')
+    // const pdfBytes = await pdfDoc.save()
+
+    // console.log(teamName);
+    // console.log(match.vs);
+    // console.log(match.result);
+    // console.log(matchFileName);
+    // console.log("----------------------------");
+
+    let t1 = teamName; // done
+    let t2 = match.vs; // done
+    let result = t1 + " " + match.result; // done
+
+    let originalBytes = fs.readFileSync("Template.pdf"); // done
+    
+    let promiseToLoadBytes = pdf.PDFDocument.load(originalBytes);
+    promiseToLoadBytes.then(function(pdfdoc){
+        let page = pdfdoc.getPage(0); // done
+        page.drawText(result, {
+            x: 300,
+            y: 513,
+            size: 14
+        }); // done
+        let promiseToSave = pdfdoc.save();
+        promiseToSave.then(function(changedBytes){
+            fs.writeFileSync(matchFileName, changedBytes); // done
+        })
+    })
 }
