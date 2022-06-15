@@ -47,9 +47,19 @@ function createScoreCard(teamName, match, matchFileName){
     let promiseToLoadBytes = pdf.PDFDocument.load(originalBytes);
     promiseToLoadBytes.then(function(pdfdoc){
         let page = pdfdoc.getPage(0); // done
+        page.drawText(t1, {
+            x:300,
+            y:550,
+            size: 14
+        });
+        page.drawText(t2, {
+            x: 300,
+            y: 532,
+            size: 14
+        })
         page.drawText(result, {
             x: 300,
-            y: 513,
+            y: 512,
             size: 14
         }); // done
         let promiseToSave = pdfdoc.save();
