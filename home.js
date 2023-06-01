@@ -80,3 +80,17 @@ function sum2Numbers(num1, num2) {
 }
 
 sum2Numbers(10, 20);
+
+// while loop 
+var num = 0;
+
+while (num < 100) {
+    num += 2
+    console.log(num);
+}
+
+// for loop
+
+for (let num = 0; num <= 100; num++) {
+    console.log(num);
+}
