@@ -51,3 +51,44 @@ fruit.shift();  // removes first element from an array
 console.log(fruit);
 fruit.unshift('kiwi');  // add first element to an array
 console.log(fruit);
+
+let vegetables = ['asparagus', 'tomato', 'broccoli'];
+let allGroceries = fruit.concat(vegetables);  // combine arrays
+
+console.log(allGroceries);
+console.log(allGroceries.slice(1, 4));
+console.log(allGroceries.reverse());
+console.log(allGroceries.sort());
+
+let someNumbers = [5, 10, 2, 25, 3, 255, 1, 2, 5, 334, 321, 2];
+console.log(someNumbers.sort(function(a, b) {return a-b}));
+// console.log(someNumbers.sort(function(a, b) {return b-a}));  // reverse sorting
+
+let emptyArray = new Array();
+for (let num = 0; num <= 10; num++) {
+    emptyArray.push(num);
+}
+console.log(emptyArray);
+
+// 4. Objects in Javascript
+// dictionaries in Python
+
+let student = {
+    first: 'Rafeh', 
+    last: 'Qazi', 
+    age: 25, 
+    height: 170,
+    studentInfo: function() {
+        return this.first + '\n' + this.last + '\n' + this.age;
+    }
+};
+
+// console.log(student.first);
+// console.log(student.last);
+// student.first = 'notRafeh';  // change value
+// console.log(student.first);
+// student.age++;
+// console.log(student.age);
+
+console.log(student);
+console.log(student.studentInfo());
