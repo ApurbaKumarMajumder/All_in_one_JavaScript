@@ -30,6 +30,7 @@ function playGame(){
   let numberGuess = document.getElementById('number-guess').value;
   displayResult(numberGuess);
   saveGuessHistory(numberGuess);
+  displayHistory();
 }
 
 /**
@@ -55,6 +56,15 @@ function displayResult(numberGuess) {
  */
 function initGame(){
   // *CODE GOES BELOW HERE *
+  
+  // Reset the correctNumber
+  correctNumber = getRandomNumber();
+  // Reset the result display
+  document.getElementById("result").innerHTML = "";
+  // Reset the guesses array
+  guesses = [];
+  // Reset the guess history display
+  displayHistory();
 }
 
 /**
@@ -95,10 +105,16 @@ function saveGuessHistory(guess) {
 */
 
 function displayHistory() {
-  let index; // TODO
+  let index = guesses.length - 1; // TODO
   let list = "<ul class='list-group'>";
   // *CODE GOES BELOW HERE *
   list += '</ul>'
+  // console.log(guesses);
+  while (index >= 0) {
+    list += "<li class='list-group-item'>" + "You guessed " + guesses[index] + "</li>";
+    index -= 1; 
+  }
+  list += '</ul>';
   document.getElementById("history").innerHTML = list;
 }
 
