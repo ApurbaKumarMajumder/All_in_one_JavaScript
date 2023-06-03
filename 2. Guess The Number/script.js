@@ -27,15 +27,7 @@ window.onload = function() {
 function playGame(){
   // *CODE GOES BELOW HERE *
   let numberGuess = document.getElementById('number-guess').value;
-  console.log(correctNumber);
-  if (numberGuess > correctNumber) {
-    console.log("Too High");
-  } else if (numberGuess < correctNumber) {
-    console.log("Too Low");
-  } 
-  else {
-    console.log("Correct! 🥂")
-  }
+  displayResult(numberGuess);
 }
 
 /**
@@ -43,7 +35,16 @@ function playGame(){
  * HINT: Use if, else if, else statement 
  */
 // *CODE GOES BELOW HERE *
-
+function displayResult(numberGuess) {
+  if (numberGuess > correctNumber) {
+    showNumberAbove();
+  } else if (numberGuess < correctNumber) {
+    showNumberBelow();
+  } 
+  else {
+   showYouWon();
+  }
+}
 
 
 /**
@@ -125,7 +126,7 @@ function showYouWon(){
    * HINT: Use the 'won' and text parameters 
    */
   // *CODE GOES BELOW HERE *
-
+  let dialog = getDialog('won', text);
   document.getElementById("result").innerHTML = dialog;
 }
 
@@ -137,7 +138,7 @@ function showNumberAbove(){
    * HINT: Use the 'warning' and text parameters 
    */
   // *CODE GOES BELOW HERE *
-
+  let dialog = getDialog('warning', text);
   document.getElementById("result").innerHTML = dialog;
 }
 
@@ -149,6 +150,6 @@ function showNumberBelow(){
    * HINT: Use the 'warning' and text parameters 
    */
   // *CODE GOES BELOW HERE *
-
+  let dialog = getDialog('warning', text);
   document.getElementById("result").innerHTML = dialog;
 }
