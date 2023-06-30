@@ -21,4 +21,3 @@ function yourAgeInSeconds(age) {
 
 console.log(yourAgeInSeconds(25));
 
-38
